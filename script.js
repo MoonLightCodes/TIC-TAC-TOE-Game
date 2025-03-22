@@ -13,8 +13,8 @@ start.onclick = (event) => {
     event.preventDefault();
 
     // Retrieve player names
-    player1 = document.getElementById('player1').value.trim();
-    player2 = document.getElementById('player2').value.trim();
+    player1 = document.getElementById('player2').value.trim();
+    player2 = document.getElementById('player1').value.trim();
 
     // Validate inputs
     if (player1 === '' || player2 === '') {
@@ -28,6 +28,7 @@ function gameInit() {
 	isOver = false;
 	player1Turn = false;
 	reset.style.display='none';
+	turn.innerText = '';
 	gamecon.classList.add('g');
 	gamecon.innerHTML ='';
 	msg.innerText = '';
