@@ -38,9 +38,9 @@ function gameInit() {
 gamecon.addEventListener('click', (e) => {
     if (!e.target.classList.contains('g-b') || e.target.innerText !== ''||isOver) return;
     e.target.innerText = player1Turn ? 'X' : 'O';
-    turn.innerText = player1Turn ? `${player1}, you're up` : `${player2}, you're up`;
     gameOver(e);
     player1Turn = !player1Turn;
+    turn.innerText = player1Turn ? `${player1}, you're up` : `${player2}, you're up`;
 });
 
 function gameOver(t) {
