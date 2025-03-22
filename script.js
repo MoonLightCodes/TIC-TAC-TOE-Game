@@ -25,6 +25,8 @@ start.onclick = (event) => {
 	gameInit();
 };
 function gameInit() {
+	isOver = false;
+	player1Turn = false;
 	reset.style.display='none';
 	gamecon.classList.add('g');
 	gamecon.innerHTML ='';
