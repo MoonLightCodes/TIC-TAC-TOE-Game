@@ -10,7 +10,7 @@ body{
 	height:100vh;
 }
 #cont{
-	width:auto;
+	width:60%;
 	background-color:#e5e5e5;
 	border:none;
 	padding:20px;
@@ -57,7 +57,7 @@ body{
     border: 2px solid #000; 
 }
 .g-b{
-	 display: flex;
+	display: flex;
     align-items: center;
     justify-content: center;
     background-color: #a5f5f5;
@@ -72,19 +72,28 @@ body{
 .g-b:hover{
 	background-color:#e5d5a5;
 }
+.g-a{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(200,2,200);
+	color:white;
+    border: 1px solid #000; 
+    font-size: 2em;
+    font-weight: bold;
+    transition: background-color 0.1s ease;
+}
+
 #turn{
 	font-family: 'Roboto', sans-serif;
 	color: #666666;
 	font-size: 1.5em;
 	font-weight:bold;
 }
-.mat{
-	background-color:rgb(200,2,200);
-	color:white;
-}
+
 #reset{
 	display:none;
-	margin-top:10px;
+	margin:10px auto;
 	padding:10px 40px;
 	font-size:1.2em;
 	border-radius:5px;
