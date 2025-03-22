@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICTACTOE</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!-- the entire body must be written by student -->
+	<div id='cont'>
+		
+		<h1 style="font-family: 'Poppins', sans-serif;background: linear-gradient(45deg, #E500E5, #00BFF7);background-clip: text;color: transparent;font-weight: 700;font-size: 3em;">TIC TAC TOE</h1>
+		<p id ='turn'></p>	
+		<div id = 'game-cont'>
+		<form  id='form' action='/submit' method='post'>
+		<label for='player1'>Player 1</label>
+		<input type='text' id='player1' name='player1' placeholder='enter name (O)' required>
+		<br>
+		<label for='player2'>Player 2</label>
+		<input type='text' id='player2' name='player2' placeholder='enter name (X)' required>
+		<br>
+		<button type='submit' id='start'>Start Game</button>
+			</form>
+			</div>
+		<p id ='msg'></p>
+		<button id='reset'>Reset</button>
+	</div>
+    <script type="text/javascript" src="./script.js">
+</script>
+
+</body>
+
+</html>
