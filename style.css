@@ -10,7 +10,7 @@ body{
 	height:100vh;
 }
 #cont{
-	width:60%;
+	width:auto;
 	background-color:#e5e5e5;
 	border:none;
 	padding:20px;
