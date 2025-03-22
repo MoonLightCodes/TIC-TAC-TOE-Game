@@ -4,6 +4,7 @@ const turn = document.querySelector('#turn');
 const gamecon = document.querySelector('#game-cont');
 const reset = document.querySelector('#reset');
 const msg = document.querySelector('#msg');
+let isOver= false;
 
 let player1 = '';
 let player2 = '';
@@ -17,7 +18,7 @@ start.onclick = (event) => {
 
     // Validate inputs
     if (player1 === '' || player2 === '') {
-        
+        msg.innerText = 'Please enter both player names';
         return;
     }
 	gamecon.innerHTML ='';
@@ -26,24 +27,24 @@ start.onclick = (event) => {
 function gameInit() {
 	gamecon.classList.add('g');
 	gamecon.innerHTML ='';
+	msg.innerText = '';
 	for(let i =0;i<9;i++){
 		let e = document.createElement('div');
 		e.classList.add('g-b');
 		gamecon.appendChild(e);
 	}
-	turn.innerText = player1Turn ? `${player2}, you're up` : `${player1}, you're up`;
+	turn.innerText = player1Turn ? `${player1}, you're up` : `${player2}, you're up`;
 }
 gamecon.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('g-b') || e.target.innerText !== '') return;
+    if (!e.target.classList.contains('g-b') || e.target.innerText !== ''||isOver) return;
     e.target.innerText = player1Turn ? 'X' : 'O';
-    turn.innerText = player1Turn ? `${player2}, you're up` : `${player1}, you're up`;
+    turn.innerText = player1Turn ? `${player1}, you're up` : `${player2}, you're up`;
     gameOver(e);
     player1Turn = !player1Turn;
 });
 
 function gameOver(t) {
 	let ar = document.querySelectorAll('.g-b');
-	let isOver= false;
 	let isFilled = true;
 	const pat = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -55,9 +56,11 @@ function gameOver(t) {
 		let mat = player1Turn?'X':'O';
 		if(ar[p].innerText===mat&&ar[q].innerText===mat&&ar[r].innerText===mat){
 			turn.innerText = player1Turn ? `${player2}, you're up` : `${player1}, you're up`;
-			ar[p].classList.add('mat');
-			ar[q].classList.add('mat');
-			ar[r].classList.add('mat');
+			ar[p].classList.replace('g-b','g-a');
+			ar[q].classList.replace('g-b','g-a');
+			ar[r].classList.replace('g-b','g-a');
+			const ss = document.styleSheets[0];
+			ss.insertRule('.g-b:hover{background-color: #a5f5f5;}',ss.cssRules.length);
 			isOver = true;
 		}
 	});
@@ -66,14 +69,15 @@ function gameOver(t) {
 	});
 
 	if(isOver){
-		alert(`Congratulation ${player1Turn?player1:player2} you have won!!`);
-		gameInit();
+		msg.innerText=`Congratulation ${player1Turn?player1:player2} you have won!!`;
+		reset.style.display='block';
+		reset.onclick=gameInit;
 		return;
 	}
 	if(isFilled){
-		//t.target.innerText = mat;
-		alert(" Tie Game press okay to re-start");
-		gameInit();
+		msg.innerText=`It's a draw!!`;
+		reset.style.display='block';
+		reset.onclick=gameInit;
 		return;
 	}
 
