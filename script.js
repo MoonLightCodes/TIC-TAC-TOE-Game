@@ -25,6 +25,7 @@ start.onclick = (event) => {
 	gameInit();
 };
 function gameInit() {
+	reset.style.display='none';
 	gamecon.classList.add('g');
 	gamecon.innerHTML ='';
 	msg.innerText = '';
